@@ -6,8 +6,10 @@ class SearchContact {
 	/**
 	 * @param {object} contactList
 	 */
-	static searchView(contactList, scanf) {
-		console.log("\n\tEnter name to search: \n");
+	static searchView(contactList, scanf, chalk) {
+		const log = console.log;
+
+		log("\n\tEnter name to search: \n");
 
 		// Input search item from the user
 		const searchItem = scanf("%S");
@@ -17,13 +19,14 @@ class SearchContact {
 
 		const searchResult = contactList.search(searchItemValidate);
 
-		console.log("\n\tSearch Result ----->\n");
+		log(chalk.whiteBright.bold.italic("\n\tSearch Result ----->\n"));
 
-		if (!searchResult.length) return console.log("\tContact Not Found\n");
+		if (!searchResult.length)
+			return log(chalk.redBright.italic("\tContact Not Found\n"));
 
 		// Show search result
 		searchResult.map((contact) => {
-			console.log(
+			log(
 				`\tID: ${contact.id}, Name: ${contact.name}, Phone No: ${
 					contact.phoneNo
 				}, Email: ${contact.email === null ? "N/A" : contact.email}\n`

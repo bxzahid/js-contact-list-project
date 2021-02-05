@@ -1,5 +1,5 @@
 const FindAllContact = require("./FindAll");
-const Contact = require('./Contact')
+const Contact = require("./Contact");
 
 /**
  * @classdesc Update contact.
@@ -9,50 +9,53 @@ class UpdateContact {
 	/**
 	 * @param {object} contactList
 	 */
-	static updateView(contactList, scanf) {
+	static updateView(contactList, scanf, chalk) {
 		// Show all contacts which are created
-		FindAllContact.findAllView(contactList.getContacts());
+		FindAllContact.findAllView(contactList.getContacts(), chalk);
+
+		const log = console.log;
+		const error = chalk.redBright.bold;
 
 		let id;
 		let userUpdatedName;
 		let userUpdatedPhoneNo;
 		let updatedContact;
 
-		console.log("\tUpdate form ----->\n");
+		log(chalk.whiteBright.bold.italic("\tUpdate form ----->\n"));
 
-		console.log("\tID* : ");
+		log("\tID* : ");
 		// Input id from the user
 		id = scanf("%S");
 
 		// If id is equal to empty space, then it continues & wants input from the user
 		while (id.trim() === "") {
-			console.log("Required");
+			log(error("\tRequired"));
 			id = scanf("%S");
 		}
 
-		console.log("\tUpdate Name* : ");
+		log("\tUpdate Name* : ");
 		// Input update name from the user
 		userUpdatedName = scanf("%S");
 
 		// If update name is equal to empty space, then it continues & wants input from the user
 		while (userUpdatedName.trim() === "") {
-			console.log("Required");
+			log(error("\tRequired"));
 			// Input update name from the user
 			userUpdatedName = scanf("%S");
 		}
 
-		console.log("\tUpdate Phone No* : ");
+		log("\tUpdate Phone No* : ");
 		// Input update phone no from the user
 		userUpdatedPhoneNo = scanf("%S");
 
 		// If update phone no is equal to empty space, then it continues & wants input from the user
 		while (userUpdatedPhoneNo.trim() === "") {
-			console.log("Required");
+			log(error("\tRequired"));
 			// Input update phone no from the user
 			userUpdatedPhoneNo = scanf("%S");
 		}
 
-		console.log("\tUpdate Email: ");
+		log("\tUpdate Email: ");
 		// Input update email from the user
 		const userUpdatedEmail = scanf("%S");
 
@@ -86,7 +89,11 @@ class UpdateContact {
 
 		contactList.update(id, updatedContact);
 
-		console.log("\n\tContact updated successfull...\n");
+		log(
+			chalk.bgWhiteBright.blackBright.bold.italic(
+				"\n\tContact updated successfull...\n"
+			)
+		);
 	}
 }
 

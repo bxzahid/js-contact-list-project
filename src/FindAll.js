@@ -6,31 +6,36 @@ class FindAllContact {
 	/**
 	 * @param {array} contacts
 	 */
-	static findAllView(contacts) {
+	static findAllView(contacts, chalk) {
+		const log = console.log;
+		const warning = chalk.italic.keyword("orange");
+
 		if (contacts.length) {
-			console.log("\n\tAll Contacts ----->\n");
+			log(chalk.whiteBright.bold.italic("\n\tAll Contacts ----->\n"));
 		}
 
 		if (!contacts.length) {
-			console.log(
-				"\n\tContact list is empty. For create a new contact, please enter 1\n"
+			log(
+				warning(
+					"\n\tContact list is empty. For create a new contact, please enter 1\n"
+				)
 			);
 		}
 
 		if (contacts.length) {
-			console.log("\t**********\n");
+			log("\t**********\n");
 		}
 
 		contacts.map((contact) => {
-			console.log(
-				`\tID: ${contact.id}, Name: ${contact.name}, Phone No: ${
+			log(
+				`\t  ID: ${contact.id}, Name: ${contact.name}, Phone No: ${
 					contact.phoneNo
 				}, Email: ${contact.email === null ? "N/A" : contact.email}\n`
 			);
 		});
 
 		if (contacts.length) {
-			console.log("\t**********\n");
+			log("\t**********\n");
 		}
 	}
 }

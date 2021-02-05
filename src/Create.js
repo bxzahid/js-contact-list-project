@@ -1,4 +1,4 @@
-const Contact = require('./Contact')
+const Contact = require("./Contact");
 
 /**
  * @classdesc Create contact
@@ -6,39 +6,41 @@ const Contact = require('./Contact')
  */
 class CreateContact {
 	/**
-	 * @param {object} contact
 	 * @return {object}
 	 */
-	static createView(scanf) {
+	static createView(scanf, chalk) {
 		let contact;
 		let userName;
 		let userPhoneNo;
 
-		console.log("\tFill the input correctly ----->\n");
+		const log = console.log;
+		const error = chalk.redBright.bold;
 
-		console.log("\tEnter Name* : ");
+		log(chalk.whiteBright.bold.italic("\tFill the input correctly ----->\n"));
+
+		log("\tEnter Name* : ");
 		// Input name from the user
 		userName = scanf("%S");
 
 		// If name is equal to empty space, then it continues & wants input from the user
 		while (userName.trim() === "") {
-			console.log("Name is required. Please enter name");
+			log(error("\tName is required. Please enter name"));
 			// Input name input the user
 			userName = scanf("%S");
 		}
 
-		console.log("\tEnter Phone No* : ");
+		log("\tEnter Phone No* : ");
 		// Input phone number input the user
 		userPhoneNo = scanf("%S");
 
 		// If phone no is equal to empty space, then it continues & wants input from the user
 		while (userPhoneNo.trim() === "") {
-			console.log("Phone no is required. Please enter phone no");
+			log(error("\tPhone no is required. Please enter phone no"));
 			// Input phone number input the user
 			userPhoneNo = scanf("%S");
 		}
 
-		console.log("\tEnter Email (Type N if not available) : ");
+		log("\tEnter Email (Type N if not available) : ");
 		// Input email from the user
 		const userEmail = scanf("%S");
 
@@ -60,7 +62,11 @@ class CreateContact {
 			contact = new Contact(name, phoneNo, email);
 		}
 
-		console.log("\nContact created successfull...\n");
+		log(
+			chalk.bgWhiteBright.blackBright.bold.italic(
+				"\n\tContact created successfull...\n"
+			)
+		);
 
 		return contact;
 	}
