@@ -26,7 +26,7 @@ class Contact {
 
 		/** @private */
 		this[_phoneNo] = phoneNo;
-		
+
 		/** @private */
 		this[_email] = email || null;
 	}

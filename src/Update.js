@@ -1,5 +1,6 @@
 const FindAllContact = require("./FindAll");
 const Contact = require("./Contact");
+const Validation = require("./Validation");
 
 /**
  * @classdesc Update contact.
@@ -17,8 +18,8 @@ class UpdateContact {
 		const error = chalk.redBright.bold;
 
 		let id;
-		let userUpdatedName;
-		let userUpdatedPhoneNo;
+		let updatedName;
+		let updatedPhoneNo;
 		let updatedContact;
 
 		log(chalk.whiteBright.bold.italic("\tUpdate form ----->\n"));
@@ -35,55 +36,51 @@ class UpdateContact {
 
 		log("\tUpdate Name* : ");
 		// Input update name from the user
-		userUpdatedName = scanf("%S");
+		updatedName = scanf("%S");
 
 		// If update name is equal to empty space, then it continues & wants input from the user
-		while (userUpdatedName.trim() === "") {
+		while (updatedName.trim() === "") {
 			log(error("\tRequired"));
 			// Input update name from the user
-			userUpdatedName = scanf("%S");
+			updatedName = scanf("%S");
 		}
 
 		log("\tUpdate Phone No* : ");
 		// Input update phone no from the user
-		userUpdatedPhoneNo = scanf("%S");
+		updatedPhoneNo = scanf("%S");
 
 		// If update phone no is equal to empty space, then it continues & wants input from the user
-		while (userUpdatedPhoneNo.trim() === "") {
+		while (updatedPhoneNo.trim() === "") {
 			log(error("\tRequired"));
 			// Input update phone no from the user
-			userUpdatedPhoneNo = scanf("%S");
+			updatedPhoneNo = scanf("%S");
 		}
 
 		log("\tUpdate Email: ");
 		// Input update email from the user
-		const userUpdatedEmail = scanf("%S");
-
-		// Remove double whitespace
-		const updatedName = userUpdatedName.trim().replace(/\s{2,}/g, " ");
-		const updatedPhoneNo = userUpdatedPhoneNo
-			.trim()
-			.replace(/\s{2,}/g, " ");
-		const updatedEmail = userUpdatedEmail.trim().replace(/\s{2,}/g, " ");
+		const updatedEmail = scanf("%S");
 
 		if (updatedEmail !== null) {
 			if (updatedEmail.toLowerCase() === "n") {
 				// Create a updatedContact object from the Contact class
-				updatedContact = new Contact(updatedName, updatedPhoneNo);
+				updatedContact = new Contact(
+					Validation.inputValidation(updatedName),
+					Validation.inputValidation(updatedPhoneNo)
+				);
 			} else {
 				// Create a updatedContact object from the Contact class
 				updatedContact = new Contact(
-					updatedName,
-					updatedPhoneNo,
-					updatedEmail
+					Validation.inputValidation(updatedName),
+					Validation.inputValidation(updatedPhoneNo),
+					Validation.inputValidation(updatedEmail)
 				);
 			}
 		} else {
 			// Create a updatedContact object from the Contact class
 			updatedContact = new Contact(
-				updatedName,
-				updatedPhoneNo,
-				updatedEmail
+				Validation.inputValidation(updatedName),
+				Validation.inputValidation(updatedPhoneNo),
+				Validation.inputValidation(updatedEmail)
 			);
 		}
 

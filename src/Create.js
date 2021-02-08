@@ -1,4 +1,5 @@
 const Contact = require("./Contact");
+const Validation = require("./Validation");
 
 /**
  * @classdesc Create contact
@@ -10,56 +11,64 @@ class CreateContact {
 	 */
 	static createView(scanf, chalk) {
 		let contact;
-		let userName;
-		let userPhoneNo;
+		let name;
+		let phoneNo;
 
 		const log = console.log;
 		const error = chalk.redBright.bold;
 
-		log(chalk.whiteBright.bold.italic("\tFill the input correctly ----->\n"));
+		log(
+			chalk.whiteBright.bold.italic("\tFill the input correctly ----->\n")
+		);
 
 		log("\tEnter Name* : ");
 		// Input name from the user
-		userName = scanf("%S");
+		name = scanf("%S");
 
 		// If name is equal to empty space, then it continues & wants input from the user
-		while (userName.trim() === "") {
+		while (name.trim() === "") {
 			log(error("\tName is required. Please enter name"));
-			// Input name input the user
-			userName = scanf("%S");
+			// Input name from the user
+			name = scanf("%S");
 		}
 
 		log("\tEnter Phone No* : ");
-		// Input phone number input the user
-		userPhoneNo = scanf("%S");
+		// Input phone number from the user
+		phoneNo = scanf("%S");
 
 		// If phone no is equal to empty space, then it continues & wants input from the user
-		while (userPhoneNo.trim() === "") {
+		while (phoneNo.trim() === "") {
 			log(error("\tPhone no is required. Please enter phone no"));
-			// Input phone number input the user
-			userPhoneNo = scanf("%S");
+			// Input phone number from the user
+			phoneNo = scanf("%S");
 		}
 
 		log("\tEnter Email (Type N if not available) : ");
 		// Input email from the user
-		const userEmail = scanf("%S");
-
-		// Input validation
-		const name = userName.trim().replace(/\s{2,}/g, " ");
-		const phoneNo = userPhoneNo.trim().replace(/\s{2,}/g, " ");
-		const email = userEmail.trim().replace(/\s{2,}/g, " ");
+		const email = scanf("%S");
 
 		if (email !== null) {
 			if (email.toLowerCase() === "n") {
 				// Create a contact object from the Contact class
-				contact = new Contact(name, phoneNo);
+				contact = new Contact(
+					Validation.inputValidation(name),
+					Validation.inputValidation(phoneNo)
+				);
 			} else {
 				// Create a contact object from the Contact class
-				contact = new Contact(name, phoneNo, email);
+				contact = new Contact(
+					Validation.inputValidation(name),
+					Validation.inputValidation(phoneNo),
+					Validation.inputValidation(email)
+				);
 			}
 		} else {
 			// Create a contact object from the Contact class
-			contact = new Contact(name, phoneNo, email);
+			contact = new Contact(
+				Validation.inputValidation(name),
+				Validation.inputValidation(phoneNo),
+				Validation.inputValidation(email)
+			);
 		}
 
 		log(
