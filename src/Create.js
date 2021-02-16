@@ -2,8 +2,9 @@ const Contact = require("./Contact");
 const Validation = require("./Validation");
 
 /**
- * @classdesc Create contact
  * @class
+ * @classdesc Create contact
+ * @method createView
  */
 class CreateContact {
 	/**
@@ -22,6 +23,7 @@ class CreateContact {
 		);
 
 		log("\tEnter Name* : ");
+
 		// Input name from the user
 		name = scanf("%S");
 
@@ -33,6 +35,7 @@ class CreateContact {
 		}
 
 		log("\tEnter Phone No* : ");
+
 		// Input phone number from the user
 		phoneNo = scanf("%S");
 
@@ -44,8 +47,12 @@ class CreateContact {
 		}
 
 		log("\tEnter Email (Type N if not available) : ");
+
 		// Input email from the user
 		const email = scanf("%S");
+
+		// Contact list object
+		// const contactList = new ContactList()
 
 		if (email !== null) {
 			if (email.toLowerCase() === "n") {

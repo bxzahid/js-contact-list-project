@@ -1,6 +1,6 @@
 /**
- * @classdesc Validation.
  * @class
+ * @classdesc Validation.
  */
 class Validation {
 	// Input validation method

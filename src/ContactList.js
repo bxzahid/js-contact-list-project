@@ -2,8 +2,15 @@
 const _contacts = Symbol("contacts");
 
 /**
- * @classdesc Project db for contact list.
  * @class
+ * @classdesc Project db for contact list.
+ * @property contacts
+ * @method create
+ * @method update
+ * @method remove
+ * @method getTotalContact
+ * @method getContacts
+ * @method search
  */
 class ContactList {
 	/**
@@ -66,16 +73,25 @@ class ContactList {
 
 	/**
 	 * Search contact method.
-	 * 
-	 * @param {string} name
+	 *
+	 * @param {string} term
 	 * @return {array}
 	 */
-	search(name) {
-		return this[_contacts].filter(
-			(contact) =>
-				contact.name.split(" ").join("").toLowerCase() ===
-				name.trim().split(" ").join("").toLowerCase()
-		);
+	search(term) {
+		const result = [];
+
+		this[_contacts].map((contact) => {
+			if (
+				contact.name
+					.split(" ")
+					.join("")
+					.toLowerCase()
+					.includes(term.split(" ").join("").toLowerCase())
+			) {
+				result.push(contact);
+			}
+		});
+		return result;
 	}
 
 	/**

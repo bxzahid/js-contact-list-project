@@ -3,8 +3,9 @@ const Contact = require("./Contact");
 const Validation = require("./Validation");
 
 /**
- * @classdesc Update contact.
  * @class
+ * @classdesc Update contact.
+ * @method updateView
  */
 class UpdateContact {
 	/**

@@ -3,6 +3,7 @@ const FindAllContact = require('./FindAll')
 /**
  * @classdesc Remove contact.
  * @class
+ * @method removeView
  */
 class RemoveContact {
 	/**

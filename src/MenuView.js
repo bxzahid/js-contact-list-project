@@ -1,6 +1,6 @@
 /**
- * @classdesc Project menu.
  * @class
+ * @classdesc Project menu.
  */
 class Menu {
 	// View menu

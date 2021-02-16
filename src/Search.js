@@ -1,10 +1,11 @@
 /**
- * @classdesc Search contact.
  * @class
+ * @classdesc Search contact.
  */
 class SearchContact {
 	/**
 	 * @param {object} contactList
+	 * @method searchView
 	 */
 	static searchView(contactList, scanf, chalk) {
 		const log = console.log;

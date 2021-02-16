@@ -2,22 +2,22 @@ const scanf = require("scanf");
 const chalk = require("chalk");
 
 // Classes
-const ContactList = require("./src/ContactList");
-const Menu = require("./src/MenuView");
-const CreateContact = require("./src/Create");
-const FindAllContact = require("./src/FindAll");
-const UpdateContact = require("./src/Update");
-const RemoveContact = require("./src/Remove");
-const SearchContact = require("./src/Search");
+const ContactList = require("./ContactList");
+const Menu = require("./MenuView");
+const CreateContact = require("./Create");
+const FindAllContact = require("./FindAll");
+const UpdateContact = require("./Update");
+const RemoveContact = require("./Remove");
+const SearchContact = require("./Search");
 
 /**
- * @classdesc App class is the root of this application.
  * @class
+ * @classdesc App class is the root of this application.
  */
 class ContactListApp {
 	constructor() {
 		let menuItem;
-
+	
 		// Contact list object
 		const contactList = new ContactList();
 
@@ -42,7 +42,10 @@ class ContactListApp {
 			switch (menuItem) {
 				// Create New Contact
 				case "1":
-					const contact = CreateContact.createView(scanf, chalk);
+					const contact = CreateContact.createView(
+						scanf,
+						chalk,
+					);
 					contactList.create(contact);
 					break;
 

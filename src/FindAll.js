@@ -1,6 +1,7 @@
 /**
- * @classdesc Find all contact
  * @class
+ * @classdesc Find all contact
+ * @method findAllView
  */
 class FindAllContact {
 	/**

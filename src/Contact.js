@@ -7,8 +7,16 @@ const _phoneNo = Symbol("phoneNo");
 const _email = Symbol("email");
 
 /**
- * @classdesc A contact template.
  * @class
+ * @classdesc A contact template.
+ * @property id
+ * @property name
+ * @property phoneNo
+ * @property email
+ * @method id
+ * @method name
+ * @method phoneNo
+ * @method email
  */
 class Contact {
 	/**
