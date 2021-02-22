@@ -1,3 +1,11 @@
+/**
+ * Title: Contact
+ * Description: Contact template
+ * Author: Bx Zahid <zahidhasan.dev@gmail.com> (https://zahidhasan.dev)
+ * Date: 22/02/2021
+ */
+
+// Dependencies
 const crypto = require("crypto");
 
 // Making properties from the public to private

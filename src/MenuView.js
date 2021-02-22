@@ -1,4 +1,11 @@
 /**
+ * Title: Menu
+ * Description: Menu
+ * Author: Bx Zahid <zahidhasan.dev@gmail.com> (https://zahidhasan.dev)
+ * Date: 22/02/2021
+ */
+
+/**
  * @class
  * @classdesc Project menu.
  */

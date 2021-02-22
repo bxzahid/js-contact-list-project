@@ -1,7 +1,14 @@
+/**
+ * Title: JavaScript Contact List Project
+ * Description: Root file
+ * Author: Bx Zahid <zahidhasan.dev@gmail.com> (https://zahidhasan.dev)
+ * Date: 22/02/2021
+ */
+
+// Dependencies
 const scanf = require("scanf");
 const chalk = require("chalk");
 
-// Classes
 const ContactList = require("./ContactList");
 const Menu = require("./MenuView");
 const CreateContact = require("./Create");
@@ -17,7 +24,7 @@ const SearchContact = require("./Search");
 class ContactListApp {
 	constructor() {
 		let menuItem;
-	
+
 		// Contact list object
 		const contactList = new ContactList();
 
@@ -42,10 +49,7 @@ class ContactListApp {
 			switch (menuItem) {
 				// Create New Contact
 				case "1":
-					const contact = CreateContact.createView(
-						scanf,
-						chalk,
-					);
+					const contact = CreateContact.createView(scanf, chalk);
 					contactList.create(contact);
 					break;
 

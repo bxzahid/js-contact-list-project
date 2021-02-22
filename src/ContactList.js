@@ -1,3 +1,10 @@
+/**
+ * Title: Contact List
+ * Description: Project db for contact list
+ * Author: Bx Zahid <zahidhasan.dev@gmail.com> (https://zahidhasan.dev)
+ * Date: 22/02/2021
+ */
+
 // Making propertry from the public to private
 const _contacts = Symbol("contacts");
 

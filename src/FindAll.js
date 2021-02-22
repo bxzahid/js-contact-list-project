@@ -1,4 +1,11 @@
 /**
+ * Title: Find All Contact
+ * Description: Find all contact
+ * Author: Bx Zahid <zahidhasan.dev@gmail.com> (https://zahidhasan.dev)
+ * Date: 22/02/2021
+ */
+
+/**
  * @class
  * @classdesc Find all contact
  * @method findAllView

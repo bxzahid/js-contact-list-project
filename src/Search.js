@@ -1,4 +1,11 @@
 /**
+ * Title: Search Contact
+ * Description: Search a contact
+ * Author: Bx Zahid <zahidhasan.dev@gmail.com> (https://zahidhasan.dev)
+ * Date: 22/02/2021
+ */
+
+/**
  * @class
  * @classdesc Search contact.
  */
