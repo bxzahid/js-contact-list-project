@@ -2,17 +2,19 @@
 	"name": "js-contact-list-project",
 	"version": "1.0.0",
 	"description": "A Contact List Project",
+	"keywords": [
+		"contact-list-project",
+		"js-contact-list-project"
+	],
+	"bugs": "https://github.com/bxzahid/js-contact-list-project/issues",
+	"license": "ISC",
 	"author": "Bx Zahid <zahidhasan.dev@gmail.com> (https://zahidhasan.dev)",
 	"repository": {
 		"type": "git",
 		"github-url": "https://github.com/bxzahid/js-contact-list-project.git",
 		"gitlab-url": "https://gitlab.com/bx.zahid/js-contact-list-project.git"
 	},
-	"keywords": [
-		"contact-list-project",
-		"js-contact-list-project"
-	],
-	"license": "ISC",
+	"main": "App.js",
 	"scripts": {
 		"start": "node src/App"
 	},
